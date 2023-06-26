@@ -93,9 +93,6 @@ def run(*,
     globals.excludes = [e.strip() for e in exclude.split(',')]
     globals.tailwind = tailwind
 
-    if multiprocessing.current_process().name != 'MainProcess':
-        return
-
     if reload and not hasattr(__main__, '__file__'):
         logging.warning('auto-reloading is only supported when running from a file')
         globals.reload = reload = False
